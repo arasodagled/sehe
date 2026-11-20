@@ -1,1 +1,14 @@
-export default function Cancel(){return <main className="result"><h1>Your checkout was cancelled.</h1><p>No order was placed. You can return to the collection whenever you're ready.</p><a href="/">Return to SUHÉ</a></main>}
+import Link from 'next/link';
+
+export default function Cancel() {
+  return (
+    <section className="result page-top">
+      <p className="label">Checkout cancelled</p>
+      <h1 className="serif page-title">No order was placed</h1>
+      <p>Your basket has been saved for whenever you&apos;re ready.</p>
+      <Link href="/shop" className="text-link">
+        Return to the shop
+      </Link>
+    </section>
+  );
+}
