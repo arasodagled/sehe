@@ -25,7 +25,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={scrolled ? 'site-header scrolled' : 'site-header'}>
+    <header className={`site-header${scrolled || menu ? ' scrolled' : ''}${pathname === '/' && !scrolled && !menu ? ' on-dark' : ''}`}>
       <div className="header-inner">
         <nav className={menu ? 'nav open' : 'nav'} aria-label="Main">
           {links.map((l) => (

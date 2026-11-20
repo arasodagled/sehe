@@ -135,33 +135,33 @@ p { margin: 0 0 1em; }
 
 /* ---------- hero ---------- */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  min-height: min(100svh, 980px);
+  display: flex;
   align-items: center;
-  gap: 40px;
-  min-height: min(100svh, 920px);
-  padding: calc(var(--header) + 32px) var(--gutter) 64px;
+  overflow: hidden;
+  background: #3a1d0f;
+  color: var(--bg);
 }
-.hero-copy { max-width: 560px; justify-self: end; width: 100%; }
+.hero-img { object-fit: cover; object-position: 70% 50%; }
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(30, 14, 6, .55) 0%, rgba(30, 14, 6, .25) 40%, rgba(30, 14, 6, 0) 60%);
+}
+.hero-copy { position: relative; z-index: 1; padding: calc(var(--header) + 40px) var(--gutter) 64px; max-width: 680px; }
+.hero .label { color: rgba(246, 241, 234, .75); }
 .hero h1 { font-size: clamp(48px, 6.4vw, 96px); line-height: 1.02; margin-bottom: 28px; }
-.hero-sub { font-size: 17px; max-width: 400px; margin-bottom: 40px; }
-.hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; }
-.hero-art::before {
-  content: '';
-  position: absolute;
-  inset: 8% 0 0;
-  background: radial-gradient(closest-side, rgba(214, 170, 110, .38), rgba(214, 170, 110, 0));
-}
-.hero-art::after {
-  content: '';
-  position: absolute;
-  left: 18%;
-  right: 18%;
-  bottom: -6px;
-  height: 28px;
-  background: radial-gradient(closest-side, rgba(60, 38, 20, .22), rgba(60, 38, 20, 0));
-}
-.hero-art img { position: relative; z-index: 1; width: min(100%, 520px); height: auto; }
+.hero-sub { font-size: 17px; max-width: 400px; margin-bottom: 40px; color: rgba(246, 241, 234, .88); }
+.btn-light { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+.btn-light:hover { background: transparent; color: var(--bg); }
+
+/* header sits over the dark hero until scrolled */
+.site-header.on-dark { color: var(--bg); }
+.site-header.on-dark .wordmark, .site-header.on-dark .basket-btn span { color: var(--bg); }
+.site-header.on-dark .icon-btn { color: var(--bg); }
+
 .back { display: inline-block; margin-bottom: 48px; }
 .back:hover { color: var(--ink); }
 
@@ -337,10 +337,10 @@ p { margin: 0 0 1em; }
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--line); }
   .site-header:has(.nav.open) { background: var(--bg); }
 
-  .hero { grid-template-columns: 1fr; min-height: 0; gap: 48px; padding-bottom: 72px; }
-  .hero-art { order: -1; }
-  .hero-art img { width: min(78%, 400px); }
-  .hero-copy { justify-self: start; }
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; background: #2e160b; }
+  .hero-img { position: relative !important; height: 58svh !important; object-position: 90% 60%; }
+  .hero::after { display: none; }
+  .hero-copy { padding: 40px var(--gutter) 64px; }
 
   .mood-grid { grid-template-columns: 1fr 1fr; }
   .mood { border-left: 0; border-bottom: 1px solid var(--line); padding: 32px 12px; }

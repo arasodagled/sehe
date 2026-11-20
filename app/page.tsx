@@ -9,6 +9,14 @@ export default function Home() {
   return (
     <>
       <section className="hero">
+        <Image
+          src="/images/hero-bonfire.webp"
+          alt="SUHÉ Bonfire candle and room mist on a stone slab"
+          fill
+          priority
+          sizes="100vw"
+          className="hero-img"
+        />
         <div className="hero-copy">
           <p className="label">Botanical fragrance house</p>
           <h1 className="serif">
@@ -16,19 +24,9 @@ export default function Home() {
             <br />a quieter mind
           </h1>
           <p className="hero-sub">Candles and room mists inspired by Colombia, made for the moments you return to yourself.</p>
-          <Link href="/shop" className="btn btn-dark">
+          <Link href="/shop" className="btn btn-light">
             Discover the collection
           </Link>
-        </div>
-        <div className="hero-art">
-          <Image
-            src="/images/hero-duo.webp"
-            alt="SUHÉ Rainfall candle and room mist"
-            width={768}
-            height={950}
-            priority
-            sizes="(max-width: 900px) 80vw, 40vw"
-          />
         </div>
       </section>
 
