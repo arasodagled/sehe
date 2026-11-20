@@ -1,0 +1,1 @@
+export default function Success(){return <main className="result"><h1>Thank you for your order.</h1><p>Your payment was submitted through Stripe. Please keep your confirmation email.</p><a href="/">Return to SUHÉ</a></main>}

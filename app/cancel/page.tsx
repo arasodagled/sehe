@@ -1,0 +1,1 @@
+export default function Cancel(){return <main className="result"><h1>Your checkout was cancelled.</h1><p>No order was placed. You can return to the collection whenever you're ready.</p><a href="/">Return to SUHÉ</a></main>}
