@@ -23,8 +23,8 @@ export type Product = {
 };
 
 export const PRICES: Record<Kind, number> = {
-  candle: 3800,
-  mist: 2800,
+  candle: 2599,
+  mist: 1899,
 };
 
 const SIZES: Record<Kind, string> = {

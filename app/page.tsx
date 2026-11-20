@@ -2,26 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { products, scents } from './products';
 import { ProductCard } from './components/product-card';
-import { PostList } from './components/post-list';
-import { getPosts } from '../lib/substack';
 
-export const revalidate = 1800;
-
-export default async function Home() {
-  const posts = (await getPosts()).slice(0, 3);
+export default function Home() {
   const candles = products.filter((p) => p.kind === 'candle');
 
   return (
     <>
       <section className="hero">
-        <Image
-          src="/images/rainfall-candle-full.webp"
-          alt="SUHÉ Rainfall candle lit beside white tea and jasmine"
-          fill
-          priority
-          sizes="100vw"
-          className="hero-img"
-        />
         <div className="hero-copy">
           <p className="label">Botanical fragrance house</p>
           <h1 className="serif">
@@ -32,6 +19,16 @@ export default async function Home() {
           <Link href="/shop" className="btn btn-dark">
             Discover the collection
           </Link>
+        </div>
+        <div className="hero-art">
+          <Image
+            src="/images/hero-duo.webp"
+            alt="SUHÉ Rainfall candle and room mist"
+            width={768}
+            height={950}
+            priority
+            sizes="(max-width: 900px) 80vw, 40vw"
+          />
         </div>
       </section>
 
@@ -84,24 +81,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section journal-teaser">
-        <div className="section-head">
-          <div>
-            <p className="label">The journal</p>
-            <h2 className="serif section-title">Notes on a calmer mind</h2>
-          </div>
-          <Link href="/journal" className="text-link">
-            All writing
-          </Link>
-        </div>
-        {posts.length > 0 ? (
-          <PostList posts={posts} />
-        ) : (
-          <p className="serif journal-empty">
-            Reflections on meditation, quieting the mind, and simple tools for finding peace. Coming soon.
-          </p>
-        )}
-      </section>
     </>
   );
 }

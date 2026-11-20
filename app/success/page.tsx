@@ -8,8 +8,8 @@ export default function Success() {
       <p className="label">Order received</p>
       <h1 className="serif page-title">Thank you</h1>
       <p>Your payment was submitted through Stripe. A confirmation email is on its way.</p>
-      <Link href="/journal" className="text-link">
-        While you wait, visit the journal
+      <Link href="/shop" className="text-link">
+        Return to the shop
       </Link>
     </section>
   );

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import localFont from 'next/font/local';
 import { CartProvider } from './components/cart';
 import { Header } from './components/header';
-import { SUBSTACK_URL } from '../lib/substack';
 import './globals.css';
 
 // Self-hosted variable fonts (SIL Open Font License), latin subset.
@@ -39,15 +38,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/shop?type=candle">Candles</Link>
                 <Link href="/shop?type=mist">Room Mists</Link>
                 <Link href="/shop">All fragrances</Link>
-              </div>
-              <div>
-                <p className="label">Read</p>
-                <Link href="/journal">Journal</Link>
-                {SUBSTACK_URL && (
-                  <a href={`${SUBSTACK_URL}/subscribe`} target="_blank" rel="noopener noreferrer">
-                    Subscribe on Substack
-                  </a>
-                )}
               </div>
               <div>
                 <p className="label">House</p>
